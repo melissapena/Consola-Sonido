@@ -30,9 +30,9 @@ public class consolaController implements Initializable {
     
    
     @FXML Pane pane;
-    @FXML Slider sliderR;
-    @FXML Slider sliderG;
-    @FXML Slider sliderB;
+    @FXML Slider barra1;
+    @FXML Slider barra2;
+    @FXML Slider barra3;
     
      @FXML
     private Label label;
@@ -53,45 +53,45 @@ public class consolaController implements Initializable {
                 //la clase BackgroundFill permiete crear un relleno 
                         new BackgroundFill( 
                             Color.rgb(//Color RGB con los valores iniciales de los slider
-                                (int)sliderR.getValue(),
-                                (int)sliderG.getValue(),
-                                (int)sliderB.getValue()
+                                (int)barra1.getValue(),
+                                (int)barra2.getValue(),
+                                (int)barra3.getValue()
                             ), CornerRadii.EMPTY, Insets.EMPTY)));
         
-        sliderR.valueProperty().addListener(new ChangeListener<Number>() {            
+        barra1.valueProperty().addListener(new ChangeListener<Number>() {            
             @Override
             public void changed(ObservableValue<? extends Number> ov,
                 Number old_val, Number new_val) {                    
                 pane.setBackground(new Background(new BackgroundFill( 
                 Color.rgb(
                     new_val.intValue(),
-                    (int)sliderG.getValue(),
-                    (int)sliderB.getValue()
+                    (int)barra2.getValue(),
+                    (int)barra3.getValue()
                 ), CornerRadii.EMPTY, Insets.EMPTY)));
             }
         });
         
-        sliderG.valueProperty().addListener(new ChangeListener<Number>() {            
+        barra2.valueProperty().addListener(new ChangeListener<Number>() {            
             @Override
             public void changed(ObservableValue<? extends Number> ov,
                 Number old_val, Number new_val) {                    
                 pane.setBackground(new Background(new BackgroundFill( 
                 Color.rgb(                    
-                    (int)sliderR.getValue(),
+                    (int)barra1.getValue(),
                     new_val.intValue(),
-                    (int)sliderB.getValue()
+                    (int)barra3.getValue()
                 ), CornerRadii.EMPTY, Insets.EMPTY)));
             }
         });
         
-        sliderB.valueProperty().addListener(new ChangeListener<Number>() {            
+        barra3.valueProperty().addListener(new ChangeListener<Number>() {            
             @Override
             public void changed(ObservableValue<? extends Number> ov,
                 Number old_val, Number new_val) {                    
                 pane.setBackground(new Background(new BackgroundFill( 
                 Color.rgb(                    
-                    (int)sliderR.getValue(),
-                    (int)sliderG.getValue(),
+                    (int)barra1.getValue(),
+                    (int)barra2.getValue(),
                     new_val.intValue()
                 ), CornerRadii.EMPTY, Insets.EMPTY)));
             }
